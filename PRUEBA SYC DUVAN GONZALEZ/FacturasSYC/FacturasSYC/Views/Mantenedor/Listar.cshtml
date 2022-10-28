@@ -1,0 +1,44 @@
+﻿@model List<FacturaModel>
+
+
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-header">
+        Lista Facturas
+    </div>
+    <div class="card-body">
+        <a asp-action="Guardar" asp-controller="Mantenedor" class="btn btn-success">Crear Nueva Factura</a>
+        <a asp-action="Reportar" asp-controller="Mantenedor" class="btn btn-success">Generar Reporte</a>
+        <hr />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID_FACTURA</th>
+                    <th>NUME_DOC</th>
+                    <th>CODI_ESTADO</th>
+                    <th>VALOR_FAC</th>
+                    <th>FECHA_FAC</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@item.ID_FACTURA</td>
+                        <td>@item.NUME_DOC</td>
+                        <td>@item.CODI_ESTADO</td>
+                        <td>@item.VALOR_FAC</td>
+                        <td>@item.FECHA_FAC</td>
+                        <td></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

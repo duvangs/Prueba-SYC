@@ -1,0 +1,39 @@
+﻿@model List<ReporteModel>
+
+@{
+    ViewData["Title"] = "Reportar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Reporte de Facturas
+    </div>
+    <div class="card-body">
+        <hr />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>FECHA_FAC</th>
+                    <th>NOMBRE</th>
+                    <th>VALOR_FAC</th>
+                    <th>DESCRIPCION</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.FECHA_FAC</td>
+                        <td>@item.NOMBRE</td>
+                        <td>@item.VALOR_FAC</td>
+                        <td>@item.DESCRIPCION</td>
+                        <td></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <a asp-action="Listar" asp-controller="Mantenedor" class="btn btn-warning">Volver a la lista</a>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+﻿@model FacturaModel
+
+@{
+    ViewData["Title"] = "Guardar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Crear Factura
+    </div>
+    <div class="card-body">
+        <form asp-action="Guardar" asp-controller="Mantenedor" method="post">
+            <div class="mb-3">
+                <label class="form-label">ID Factura</label>
+                <input asp-for="ID_FACTURA" type="number" class="form-control">
+                <span asp-validation-for="ID_FACTURA" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Número de documento</label>
+                <input asp-for="NUME_DOC" type="number" class="form-control">
+                <span asp-validation-for="NUME_DOC" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Estado de Factura *Digite 1 si es vigente, 2 para pagada y 3 para vencida</label>
+                <input asp-for="CODI_ESTADO" type="number" class="form-control">
+                <span asp-validation-for="CODI_ESTADO" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Valor Factura</label>
+                <input asp-for="VALOR_FAC" type="number" class="form-control">
+                <span asp-validation-for="VALOR_FAC" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Fecha Factura</label>
+                <input asp-for="FECHA_FAC" type="datetime-local" class="form-control">
+                <span asp-validation-for="FECHA_FAC" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="Listar" asp-controller="Mantenedor" class="btn btn-warning">Volver a la lista</a>
+        </form>
+    </div>
+</div>
+
